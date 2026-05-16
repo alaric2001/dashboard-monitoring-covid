@@ -2,36 +2,32 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use Illuminate\Database\Seeder;
-use App\Models\Patient;
-use App\Models\Doctor;
-use App\Models\PatientExamination;
-use App\Models\NextOfKin;
-use App\Models\Ward;
-use App\Models\Room;
-use Database\Factories\PatientFactory;
-use Database\Factories\PatientExaminationFactory;
-use Database\Factories\NextOfKinFactory;
-use Database\Factories\DoctorFactory;
-use Database\Factories\WardFactory;
-use Database\Factories\RoomFactory;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run () : void
+    public function run(): void
     {
+        // Auth: urutan penting — Permission harus ada sebelum Role melakukan sync
+        $this->call(PermissionSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(PermissionSeeder::class);
-        Patient::factory(50)->create();
-        Doctor::factory(15)->create();
-        PatientExamination::factory(50)->create();
-        Ward::factory(10)->create();
-        Room::factory(50)->create();
+
+        // Master data (tidak ada dependensi antar tabel)
+        $this->call(WardSeeder::class);
+        $this->call(DoctorSeeder::class);
+        $this->call(NurseSeeder::class);
+
+        // Pasien dan data klinis
+        $this->call(PatientSeeder::class);
+        $this->call(RoomSeeder::class);             // butuh Ward + Patient
+        $this->call(PatientExaminationSeeder::class); // butuh Patient + Doctor
+        $this->call(MedicineSeeder::class);          // butuh Patient
+        $this->call(LabSeeder::class);               // butuh Patient
+        $this->call(RadiologySeeder::class);          // butuh Patient + Doctor
+
+        // Data IoT tanda-tanda vital & EWS (butuh Patient)
+        $this->call(VitalSignSeeder::class);
+        $this->call(EwsSeeder::class);
     }
 }
