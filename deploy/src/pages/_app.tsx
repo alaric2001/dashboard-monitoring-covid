@@ -8,6 +8,7 @@ import 'flowbite';
 
 import { ni18nConfig } from '../ni18n.config';
 import { setupMockAdapter } from '@/lib/http/mockAdapter';
+import TechInfoModal from '@/components/TechInfoModal';
 
 // Install mock adapter once at module load — intercepts all axios calls globally
 setupMockAdapter(axios);
@@ -39,6 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         ></link> */}
       </Head>
       <Component {...pageProps} />
+      <TechInfoModal />
       {/* <script src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js'></script> */}
       <Script src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js' />
       {/* <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> */}
