@@ -15,7 +15,7 @@ function Nurse() {
   }, []);
   const fetchDataFromApis = async () => {
     try {
-      const nurseApi = await axios.get('http://localhost:8000/api/nurses');
+      const nurseApi = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/nurses`);
       setNurses(nurseApi.data);
     } catch (error) {
       console.error('Error fetching data:', error);

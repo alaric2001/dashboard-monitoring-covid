@@ -55,16 +55,7 @@ function VitalSign() {
   const fetchData = () => {
     // Make the API call to fetch the data
     axios
-    // .get<ApiResponse>(`https://patientmonitoring.my.id/api/patient-ttv/${vital_sign}`)
-      .get<ApiResponse>(`http://localhost:8000/api/patient-ttv/${vital_sign}`)
-      // .get<ApiResponse>(
-      //   `https://4f23-113-11-180-109.ngrok-free.app/api/patient-ttv/${vital_sign}`,
-      //   {
-      //     headers: {
-      //       'ngrok-skip-browser-warning': 'any',
-      //     },
-      //   }
-      // )
+      .get<ApiResponse>(`${process.env.NEXT_PUBLIC_API_URL}/patient-ttv/${vital_sign}`)
       .then((response: AxiosResponse<ApiResponse>) => {
         setDetailPatient(response.data);
 

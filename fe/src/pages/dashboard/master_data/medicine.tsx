@@ -15,7 +15,7 @@ function Medicine() {
   }, []);
   const fetchDataFromApis = async () => {
     try {
-      const medicineApi = await axios.get('http://localhost:8000/api/medicines');
+      const medicineApi = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/medicines`);
       setMedicines(medicineApi.data);
     } catch (error) {
       console.error('Error fetching data:', error);

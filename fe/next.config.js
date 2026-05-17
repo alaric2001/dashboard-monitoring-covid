@@ -1,4 +1,19 @@
 /** @type {import('next').NextConfig} */
+function getApiRemotePattern() {
+  const url = process.env.NEXT_PUBLIC_API_URL ?? 'http://52.74.21.105/api';
+  try {
+    const parsed = new URL(url.replace(/\/api$/, ''));
+    return {
+      protocol: parsed.protocol.replace(':', ''),
+      hostname: parsed.hostname,
+      port: parsed.port || '',
+      pathname: '**',
+    };
+  } catch {
+    return { protocol: 'http', hostname: '52.74.21.105', port: '', pathname: '**' };
+  }
+}
+
 const nextConfig = {
   experimental: {
     appDir: true,
@@ -29,12 +44,7 @@ const nextConfig = {
         port: '',
         pathname: '/api/**',
       },
-      {
-        protocol: 'http',
-        hostname: '52.74.21.105',
-        port: '',
-        pathname: '**',
-      },
+      getApiRemotePattern(),
     ],
   },
 

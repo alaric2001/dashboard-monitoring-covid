@@ -15,7 +15,7 @@ function Lab() {
   }, []);
   const fetchDataFromApis = async () => {
     try {
-      const labApi = await axios.get('http://localhost:8000/api/labs');
+      const labApi = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/labs`);
       setLabs(labApi.data);
     } catch (error) {
       console.error('Error fetching data:', error);

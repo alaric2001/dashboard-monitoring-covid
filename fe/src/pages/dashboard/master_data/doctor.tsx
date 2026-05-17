@@ -16,7 +16,7 @@ function Doctor() {
   const fetchDataFromApis = async () => {
     try {
       // const doctorApi = await axios.get('https://patientmonitoring.my.id/api/doctors')
-      const doctorApi = await axios.get('http://localhost:8000/api/doctors');
+      const doctorApi = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/doctors`);
       // const doctorApi = await axios.get(
       //   'https://4f23-113-11-180-109.ngrok-free.app/api/doctors',
       //   {

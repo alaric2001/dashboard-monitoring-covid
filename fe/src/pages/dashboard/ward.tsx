@@ -24,7 +24,7 @@ function Ward() {
   const fetchData = async () => {
     try {
       // const response = await axios.get('https://patientmonitoring.my.id/api/wards');
-      const response = await axios.get('http://localhost:8000/api/wards'); // Replace with your API URL
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/wards`);
       // const response = await axios.get(
       //   'https://4f23-113-11-180-109.ngrok-free.app/api/wards',
       //   {

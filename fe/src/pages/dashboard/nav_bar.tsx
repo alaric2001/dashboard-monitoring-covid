@@ -36,15 +36,14 @@ export default function Nav_bar() {
             ref={ddRef}
             type='button'
             onClick={ddNavBtn}
-            className={`${
-              ddNavOpen == true ? 'bg-gray-700 ' : ''
-            } ${'flex items-center gap-2 py-[23px] text-white transition duration-75 hover:bg-gray-700'} `}
+            className={`${ddNavOpen == true ? 'bg-gray-700 ' : ''
+              } ${'flex items-center gap-2 py-[23px] text-white transition duration-75 hover:bg-gray-700'} `}
           >
             <i className='material-icons cursor-pointer rounded-lg text-white hover:bg-gray-700'>
               person
             </i>
             <p className={`${styles.normaltext} ${'text-white'}`}>
-              Evenetus Purba
+              Alaric Rasendriya Aniko
             </p>
             {/* <i className={`${'material-icons text-white'}`}>
               {ddNavOpen ? 'remove' : 'keyboard_arrow_down'}

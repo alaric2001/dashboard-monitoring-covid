@@ -26,7 +26,7 @@ function MedicalPrescription() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/patients/'); // Replace with your API URL
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/patients/`);
       setData(response.data); // Assuming your API returns an array of data
       setLoading(false);
     } catch (error) {

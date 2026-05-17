@@ -15,7 +15,7 @@ function Radiology() {
   }, []);
   const fetchDataFromApis = async () => {
     try {
-      const radiologiesApi = await axios.get('http://localhost:8000/api/radiologies');
+      const radiologiesApi = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/radiologies`);
       setRadiologies(radiologiesApi.data);
     } catch (error) {
       console.error('Error fetching data:', error);

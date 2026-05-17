@@ -22,7 +22,7 @@ export default function Patientdata() {
   
   const fetchDataFromApis = async () => {
     try {
-      const patientApi = await axios.get('http://localhost:8000/api/patient-ttv');
+      const patientApi = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/patient-ttv`);
       // const patientApi = await axios.get('https://patientmonitoring.my.id/api/patient-ttv');
       // const patientApi = await axios.get(
       //   'https://4f23-113-11-180-109.ngrok-free.app/api/patient-ttv',

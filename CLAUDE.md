@@ -14,8 +14,9 @@ Sistem monitoring pasien COVID berbasis web dengan IoT. Backend REST API (Larave
 
 ```bash
 composer install
-php artisan migrate
-php artisan db:seed
+php artisan migrate:fresh --seed           # reset + isi semua data seeder
+php artisan migrate                        # hanya jalankan migration baru
+php artisan db:seed                        # isi data tanpa reset
 php artisan serve                          # http://localhost:8000
 
 # Testing
@@ -81,6 +82,22 @@ Semua page menggunakan `baselayout.tsx` sebagai layout wrapper. HTTP client ada 
 ### Database
 
 MySQL default berjalan di **port 7000** (non-standard) dengan database bernama `covid-be`. Tabel vital signs adalah time-series terpisah per jenis sinyal. Autentikasi menggunakan `personal_access_tokens` (Laravel Sanctum).
+
+### Seeder
+
+`be/database/seeders/DatabaseSeeder.php` menjalankan 14 seeder secara berurutan. **Urutan penting** karena ada foreign key:
+
+```
+PermissionSeeder → RoleSeeder → UserSeeder
+WardSeeder → DoctorSeeder → NurseSeeder
+PatientSeeder → RoomSeeder → PatientExaminationSeeder
+             → MedicineSeeder → LabSeeder → RadiologySeeder
+             → VitalSignSeeder → EwsSeeder
+```
+
+Data seed mencakup 8 pasien COVID, 5 dokter, 5 perawat, 5 bangsal, 16 kamar, beserta data klinis lengkap (lab, radiologi, obat, tanda-tanda vital 10 pembacaan per pasien).
+
+`VitalSignSeeder` menggunakan `DB::table()->insert()` dengan timestamp eksplisit (bukan `Model::create()`) agar data time-series grafik terurut dengan benar. Jangan ganti ke factory untuk tabel ini.
 
 ---
 

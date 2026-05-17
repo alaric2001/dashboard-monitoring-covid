@@ -17,7 +17,7 @@ function Ward_master() {
   const fetchDataFromApis = async () => {
     try {
       // const wardApi = await axios.get('https://patientmonitoring.my.id/api/wards');
-      const wardApi = await axios.get('http://localhost:8000/api/wards');
+      const wardApi = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/wards`);
       // const wardApi = await axios.get(
       //   'https://4f23-113-11-180-109.ngrok-free.app/api/wards',
       //   {

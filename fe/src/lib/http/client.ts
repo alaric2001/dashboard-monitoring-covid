@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://52.74.21.105/api'; //TODO: move to env
+const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://127.0.0.1:8000/api';
 
 const getBaseUrl = () => {
   return baseUrl;

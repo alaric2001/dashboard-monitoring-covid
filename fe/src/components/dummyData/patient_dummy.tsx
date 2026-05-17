@@ -391,7 +391,7 @@ const patient_dummy_data = [
   },
   {
     id: 14,
-    patient_name: 'Evenetus Worshiper Purba',
+    patient_name: 'Alaric Rasendriya Aniko',
     admission_date: '30/05/2022',
     discharge_date: '30/06/2023',
     gender: 'Male',

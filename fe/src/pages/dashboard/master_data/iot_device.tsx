@@ -15,7 +15,7 @@ function IoT_device() {
   }, []);
   const fetchDataFromApis = async () => {
     try {
-      const patientApi = await axios.get('http://localhost:8000/api/patients');
+      const patientApi = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/patients`);
       setPatients(patientApi.data);
     } catch (error) {
       console.error('Error fetching data:', error);

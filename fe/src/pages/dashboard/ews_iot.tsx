@@ -30,16 +30,7 @@ export default function Ews_iot() {
   // Patien Data From API
   const fetchData = async () => {
     try {
-      // const response = await axios.get('https://patientmonitoring.my.id/api/patient-ttv');
-      const response = await axios.get('http://localhost:8000/api/patient-ttv'); // Replace with your API URL
-      // const response = await axios.get(
-      //   'https://4f23-113-11-180-109.ngrok-free.app/api/patient-ttv',
-      //   {
-      //     headers: {
-      //       'ngrok-skip-browser-warning': 'any',
-      //     },
-      //   }
-      // ); // Replace with your API URL
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/patient-ttv`);
       setData_ews(response.data);
       setLoading(false);
     } catch (error) {
@@ -125,14 +116,7 @@ export default function Ews_iot() {
     try {
       // const newValue = currentValue === 1 ? 0 : 1;
       const response = await axios.post(
-        `https://patientmonitoring.my.id/api/update-patient-check/${patientId}/${vitalSignId}/${type}/${currentValue}`
-        // `http://localhost:8000/api/update-patient-check/${patientId}/${vitalSignId}/${type}/${currentValue}`
-      //   `https://4f23-113-11-180-109.ngrok-free.app/api/update-patient-check/${patientId}/${vitalSignId}/${type}/${currentValue}`,
-      //   {
-      //     headers: {
-      //       'ngrok-skip-browser-warning': 'any',
-      //     },
-      //   }
+        `${process.env.NEXT_PUBLIC_API_URL}/update-patient-check/${patientId}/${vitalSignId}/${type}/${currentValue}`
       );
       // console.log('API Response:', response.data); // Log the response data
       if (response.data.message === 'Patient check updated successfully') {
