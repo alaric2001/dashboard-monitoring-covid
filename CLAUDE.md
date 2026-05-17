@@ -114,7 +114,18 @@ DB_DATABASE=covid-be
 NEXT_PUBLIC_API_URL="http://127.0.0.1:8000/api"
 ```
 
-> Perhatian: `fe/src/lib/http/client.ts` memiliki IP production yang di-hardcode (`52.74.21.105`). Selalu gunakan `NEXT_PUBLIC_API_URL` dari env untuk development lokal.
+`NEXT_PUBLIC_API_URL` adalah satu-satunya sumber URL API di seluruh frontend. Semua halaman menggunakan `` `${process.env.NEXT_PUBLIC_API_URL}/endpoint` `` secara langsung. `fe/next.config.js` juga membaca env ini untuk mengisi `remotePatterns` hostname pada konfigurasi gambar.
+
+---
+
+## Deployment (Vercel)
+
+Frontend (`fe/`) di-deploy ke Vercel, backend (`be/`) harus berjalan di server terpisah (tidak bisa di Vercel).
+
+**Pengaturan Vercel:**
+- **Root Directory**: `fe/`
+- **Environment Variable**: `NEXT_PUBLIC_API_URL` = URL backend production (contoh: `https://patientmonitoring.my.id/api`)
+- Build command dan output directory dibiarkan default (Next.js auto-detect)
 
 ---
 

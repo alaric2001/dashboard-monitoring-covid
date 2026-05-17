@@ -102,20 +102,14 @@ const favicons: Array<React.ComponentPropsWithoutRef<'link'>> = [
   {
     rel: 'icon',
     type: 'image/png',
-    sizes: '32x32',
-    href: '/favicon/Dashboard-54x54.png',
+    sizes: '96x96',
+    href: '/favicon/favicon-96x96.png',
   },
   {
     rel: 'icon',
-    type: 'image/png',
-    sizes: '16x16',
-    href: '/favicon/Dashboard-54x54.png',
+    type: 'image/svg+xml',
+    href: '/favicon/favicon.svg',
   },
   { rel: 'manifest', href: '/favicon/site.webmanifest' },
-  {
-    rel: 'mask-icon',
-    href: '/favicon/Dashboard-54x54.png',
-    color: '#00e887',
-  },
-  { rel: 'shortcut icon', href: '/favicon/Dashboard-54x54.png' },
+  { rel: 'shortcut icon', href: '/favicon/favicon.ico' },
 ];
