@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏥 Patient Monitoring System
+# 🏥 Covid-19 Patients Monitoring Dashboard
 
 ### Sistem Monitoring Pasien COVID-19 Berbasis IoT & Real-Time
 
