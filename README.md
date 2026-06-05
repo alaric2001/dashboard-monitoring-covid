@@ -10,7 +10,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-> Dikembangkan bersama **PT. ESD – Telkom University** · 2023
+> Dikembangkan bersama **Lab ESD – Telkom University** · 2023
 
 </div>
 
@@ -194,7 +194,7 @@ monitoring_covid/
 
 <div align="center">
 
-**© 2023 PT. ESD – Telkom University**
+**© 2023 Lab ESD – Telkom University**
 
 *Proyek ini dikembangkan sebagai sistem informasi rumah sakit untuk penanganan pasien COVID-19*
 
